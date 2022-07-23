@@ -2,3 +2,5 @@ cscope.out
 *.swp
 *.ko
 *.o
+.*.o.cmd
+.*.o.d
