@@ -17,7 +17,9 @@
 #ifdef __KERNEL__
 	#include <linux/if_arp.h>
 	#include <net/ip.h>
+#ifdef CONFIG_IPX
 	#include <net/ipx.h>
+#endif /*CONFIG_IPX*/
 	#include <linux/atalk.h>
 	#include <linux/udp.h>
 	#include <linux/if_pppox.h>
@@ -888,7 +890,7 @@ int nat25_db_handle(_adapter *priv, struct sk_buff *skb, int method)
 			return -1;
 		}
 	}
-
+#ifdef CONFIG_IPX
 	/*---------------------------------------------------*/
 	/*         Handle IPX and Apple Talk frame          */
 	/*---------------------------------------------------*/
@@ -1109,6 +1111,7 @@ int nat25_db_handle(_adapter *priv, struct sk_buff *skb, int method)
 
 		return -1;
 	}
+#endif /*CONFIG_IPX*/
 
 	/*---------------------------------------------------*/
 	/*                Handle PPPoE frame                */
